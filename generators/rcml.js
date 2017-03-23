@@ -20,7 +20,7 @@ Blockly.RCML = new Blockly.Generator('RCML');
  * @private
  */
 Blockly.RCML.addReservedWords(
-    'break,case,else,false,if,null,return,true,Null'
+    'break,case,else,false,if,null,return,true,Null,loop,bool,and,or,not,throw,default,float,try,catch,include,include_lib'
 );
 
 /**
@@ -90,7 +90,7 @@ Blockly.RCML.finish = function(code) {
     var definitions = [];
     for (var name in Blockly.RCML.definitions_) {
         var def = Blockly.RCML.definitions_[name];
-        if (def.match(/^import\s/)) {
+        if (def.match(/^include\s/) || def.match(/^include_lib\s/)) {
             imports.push(def);
         } else {
             definitions.push(def);
