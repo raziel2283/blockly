@@ -3,7 +3,7 @@
  * @author semeiko@robotct.ru
  */
 'use strict';
-goog.provide('Blockly.RCML.include');
+goog.provide('Blockly.RCML.includes');
 goog.require('Blockly.RCML');
 
 Blockly.RCML['include'] = function(block) {

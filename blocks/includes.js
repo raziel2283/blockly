@@ -3,10 +3,10 @@
  * @author semeiko@robotct.ru
  */
 'use strict';
-goog.provide('Blockly.Blocks.include');
+goog.provide('Blockly.Blocks.includes');
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.include.HUE = 430;
+Blockly.Blocks.includes.HUE = 430;
 
 Blockly.Blocks['include'] = {
     /**
@@ -22,7 +22,7 @@ Blockly.Blocks['include'] = {
                     "name": "TEXT"
                 }
             ],
-            "colour": Blockly.Blocks.include.HUE
+            "colour": Blockly.Blocks.includes.HUE
         });
     }
 };
@@ -46,13 +46,12 @@ Blockly.Blocks['include_lib'] = {
                     "name": "TEXT"
                 }
             ],
-            "colour": Blockly.Blocks.include.HUE
+            "colour": Blockly.Blocks.includes.HUE
         });
     },
     onchange: function(ev) {
         var name = this.getFieldValue('FIELDNAME');
-        if (/^[a-zA-Z][a-zA-Z0-9_]+$/.test(name)) {
-            this.setWarningText(null);
-        } else this.setWarningText('Only letters and numbers and separator');
+        if (name && /^[a-zA-Z][a-zA-Z0-9_]+$/.test(name)) this.setWarningText(null);
+        else this.setWarningText('Only letters and numbers and separator');
     }
 };
