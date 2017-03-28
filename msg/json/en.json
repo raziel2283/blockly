@@ -246,7 +246,7 @@
 	"TEXT_TRIM_OPERATOR_LEFT": "trim spaces from left side of",
 	"TEXT_TRIM_OPERATOR_RIGHT": "trim spaces from right side of",
 	"TEXT_PRINT_HELPURL": "https://github.com/google/blockly/wiki/Text#printing-text",
-	"TEXT_PRINT_TITLE": "print %1",
+	"TEXT_PRINT_TITLE": "echo %1",
 	"TEXT_PRINT_TOOLTIP": "Print the specified text, number or other value.",
 	"TEXT_PROMPT_HELPURL": "https://github.com/google/blockly/wiki/Text#getting-input-from-the-user",
 	"TEXT_PROMPT_TYPE_TEXT": "prompt for text with message",
