@@ -57,20 +57,9 @@ Blockly.RCML.init = function(workspace) {
     // to actual function names (to avoid collisions with user functions).
     Blockly.RCML.functionNames_ = Object.create(null);
 
-    if (!Blockly.RCML.variableDB_) {
-        Blockly.RCML.variableDB_ =
-            new Blockly.Names(Blockly.RCML.RESERVED_WORDS_);
-    } else {
-        Blockly.RCML.variableDB_.reset();
-    }
-
-    var defvars = [];
-    var variables = Blockly.Variables.allVariables(workspace);
-    for (var i = 0; i < variables.length; i++) {
-        defvars[i] = Blockly.RCML.variableDB_.getName(variables[i],
-                Blockly.Variables.NAME_TYPE) + ';';
-    }
-    Blockly.RCML.definitions_['variables'] = defvars.join('\n');
+    // Push variables names
+    if (!Blockly.RCML.variableDB_) Blockly.RCML.variableDB_ = new Blockly.Names(Blockly.RCML.RESERVED_WORDS_);
+    else Blockly.RCML.variableDB_.reset();
 };
 
 /**
