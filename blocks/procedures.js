@@ -454,7 +454,11 @@ Blockly.Blocks['procedures_callnoreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    var FLAGS = [
+      ['null',''], ['~','~'], ['>','>'], ['#','#']
+    ];
     this.appendDummyInput('TOPROW')
+        .appendField(new Blockly.FieldDropdown(FLAGS), 'FLAGS')
         .appendField(this.id, 'NAME');
     this.setPreviousStatement(true);
     this.setNextStatement(true);

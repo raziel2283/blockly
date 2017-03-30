@@ -65,6 +65,8 @@ Blockly.RCML['procedures_callreturn'] = function(block) {
     return [code, Blockly.RCML.ORDER_FUNCTION_CALL];
 };
 Blockly.RCML['procedures_callnoreturn'] = function(block) {
+    // MODE Flags
+    var flag = block.getFieldValue('FLAGS');
     // Call a procedure with no return value.
     var funcName = Blockly.RCML.variableDB_.getName(
         block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
@@ -73,8 +75,7 @@ Blockly.RCML['procedures_callnoreturn'] = function(block) {
         args[i] = Blockly.RCML.valueToCode(block, 'ARG' + i,
                 Blockly.RCML.ORDER_COMMA) || 'null';
     }
-    var code = funcName + '(' + args.join(', ') + ');\n';
-    return code;
+    return flag + funcName + '(' + args.join(', ') + ');\n';
 };
 Blockly.RCML['procedures_ifreturn'] = function(block) {
     // Conditionally return value from a procedure.
