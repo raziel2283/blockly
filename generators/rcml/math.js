@@ -46,3 +46,33 @@ Blockly.RCML['math_modulo'] = null;
 Blockly.RCML['math_constrain'] = null;
 Blockly.RCML['math_random_int'] = null;
 Blockly.RCML['math_random_float'] = null;
+
+Blockly.RCML['math_number_property_2'] = function(block){
+    var value = Blockly.RCML.valueToCode(block, 'VALUE', Blockly.RCML.ORDER_MODULUS) || '0';
+    var property = block.getFieldValue('PROPERTY');
+    var code;
+    switch (property) {
+        case 'EVAL':
+            code = value + ' % 2 != 0';
+            break;
+        case 'EVEN':
+            code = value + ' % 2 == 0';
+            break;
+        case 'ODD':
+            code = value + ' % 2 == 1';
+            break;
+        case 'WHOLE':
+            code = value + ' % 1 == 0';
+            break;
+        case 'POSITIVE':
+            code = value + ' > 0';
+            break;
+        case 'NEGATIVE':
+            code = value + ' < 0';
+            break;
+        case 'DIVISIBLE_BY':
+            code = value + ' % 0 == 0';
+            break;
+    }
+    return [code, Blockly.RCML.ORDER_EQUALITY];
+};
